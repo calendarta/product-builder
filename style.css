@@ -3,7 +3,23 @@
     --secondary-color: #f5a623;
     --background-color: #f0f4f8;
     --text-color: #333;
-    --white: #fff;
+    --surface-color: #fff;
+    --muted-surface: #eee;
+    --ball-bg: #c8f36a;
+    --ball-text: #1f2a12;
+    --border-color: rgba(0, 0, 0, 0.08);
+}
+
+body[data-theme="dark"] {
+    --primary-color: #89b4ff;
+    --secondary-color: #f6b55a;
+    --background-color: #0e141b;
+    --text-color: #e6edf3;
+    --surface-color: #151e28;
+    --muted-surface: #1d2733;
+    --ball-bg: #c8f36a;
+    --ball-text: #16210b;
+    --border-color: rgba(255, 255, 255, 0.12);
 }
 
 body {
@@ -18,15 +34,25 @@ body {
 }
 
 #app {
-    background-color: var(--white);
+    background-color: var(--surface-color);
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 h1 {
     color: var(--primary-color);
+    margin: 0;
 }
 
 #numbers-container {
@@ -36,9 +62,25 @@ h1 {
     margin: 2rem 0;
 }
 
+#theme-toggle {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 0.9rem;
+    font-size: 0.9rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+#theme-toggle:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
 #generate-button {
     background-color: var(--primary-color);
-    color: var(--white);
+    color: #fff;
     border: none;
     padding: 0.8rem 1.5rem;
     font-size: 1rem;
@@ -63,7 +105,7 @@ h1 {
 }
 
 #history-list li {
-    background-color: #eee;
+    background-color: var(--muted-surface);
     padding: 0.5rem;
     border-radius: 5px;
     margin-bottom: 0.5rem;

@@ -3,31 +3,30 @@ class LottoBall extends HTMLElement {
         super();
         const shadow = this.attachShadow({ mode: 'open' });
         const number = this.getAttribute('number');
-        const color = this.getColor(number);
+
+        const style = document.createElement('style');
+        style.textContent = `
+            .ball {
+                background-color: var(--ball-bg, #c8f36a);
+                color: var(--ball-text, #1f2a12);
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 1.5rem;
+                font-weight: bold;
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.18);
+            }
+        `;
 
         const ball = document.createElement('div');
-        ball.style.backgroundColor = color;
-        ball.style.color = 'white';
-        ball.style.width = '50px';
-        ball.style.height = '50px';
-        ball.style.borderRadius = '50%';
-        ball.style.display = 'flex';
-        ball.style.justifyContent = 'center';
-        ball.style.alignItems = 'center';
-        ball.style.fontSize = '1.5rem';
-        ball.style.fontWeight = 'bold';
+        ball.className = 'ball';
         ball.textContent = number;
 
+        shadow.appendChild(style);
         shadow.appendChild(ball);
-    }
-
-    getColor(number) {
-        const num = parseInt(number, 10);
-        if (num <= 10) return '#fbc400'; // Yellow
-        if (num <= 20) return '#69c8f2'; // Blue
-        if (num <= 30) return '#ff7272'; // Red
-        if (num <= 40) return '#aaa'; // Gray
-        return '#b0d840'; // Green
     }
 }
 
@@ -36,8 +35,16 @@ customElements.define('lotto-ball', LottoBall);
 const generateButton = document.getElementById('generate-button');
 const numbersContainer = document.getElementById('numbers-container');
 const historyList = document.getElementById('history-list');
+const themeToggle = document.getElementById('theme-toggle');
 
 const history = [];
+const THEME_KEY = 'lotto-theme';
+
+function applyTheme(theme) {
+    document.body.setAttribute('data-theme', theme);
+    themeToggle.textContent = theme === 'dark' ? 'Light Mode' : 'Dark Mode';
+    themeToggle.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+}
 
 function generateNumbers() {
     const numbers = new Set();
@@ -71,4 +78,15 @@ generateButton.addEventListener('click', () => {
         numbersContainer.appendChild(lottoBall);
     }
     updateHistory(newNumbers);
+});
+
+const savedTheme = localStorage.getItem(THEME_KEY);
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+applyTheme(initialTheme);
+
+themeToggle.addEventListener('click', () => {
+    const nextTheme = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(nextTheme);
+    localStorage.setItem(THEME_KEY, nextTheme);
 });
