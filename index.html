@@ -18,6 +18,28 @@
             <h2>History</h2>
             <ul id="history-list"></ul>
         </div>
+        <section id="partner-section">
+            <h2>Partnership Inquiry</h2>
+            <form id="partner-form" action="https://formspree.io/f/mzdablnd" method="POST">
+                <label>
+                    Name
+                    <input type="text" name="name" placeholder="Your name" required>
+                </label>
+                <label>
+                    Company
+                    <input type="text" name="company" placeholder="Company (optional)">
+                </label>
+                <label>
+                    Email
+                    <input type="email" name="email" placeholder="you@email.com" required>
+                </label>
+                <label>
+                    Message
+                    <textarea name="message" rows="4" placeholder="Tell us about your partnership idea" required></textarea>
+                </label>
+                <button type="submit" id="partner-submit">Send Inquiry</button>
+            </form>
+        </section>
     </div>
     <script src="main.js"></script>
 </body>
