@@ -5,8 +5,6 @@
     --text-color: #333;
     --surface-color: #fff;
     --muted-surface: #eee;
-    --ball-bg: #c8f36a;
-    --ball-text: #1f2a12;
     --border-color: rgba(0, 0, 0, 0.08);
 }
 
@@ -17,8 +15,6 @@ body[data-theme="dark"] {
     --text-color: #e6edf3;
     --surface-color: #151e28;
     --muted-surface: #1d2733;
-    --ball-bg: #c8f36a;
-    --ball-text: #16210b;
     --border-color: rgba(255, 255, 255, 0.12);
 }
 
@@ -28,8 +24,9 @@ body {
     color: var(--text-color);
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     min-height: 100vh;
+    padding: 2.5rem 1.25rem;
     margin: 0;
 }
 
@@ -40,6 +37,8 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     text-align: center;
     border: 1px solid var(--border-color);
+    max-width: 900px;
+    width: min(92vw, 900px);
 }
 
 .app-header {
@@ -55,11 +54,85 @@ h1 {
     margin: 0;
 }
 
-#numbers-container {
+.title-block {
+    text-align: left;
+}
+
+.kicker {
+    margin: 0 0 0.35rem 0;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+
+.subtitle {
+    margin: 0.4rem 0 0 0;
+    color: var(--text-color);
+    opacity: 0.8;
+    max-width: 520px;
+}
+
+.page-nav {
+    margin: 1.5rem 0 2rem 0;
     display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
     justify-content: center;
-    gap: 1rem;
-    margin: 2rem 0;
+}
+
+.page-nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.page-nav a:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.card {
+    text-align: left;
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.section-lead {
+    margin-top: 0.5rem;
+    opacity: 0.85;
+}
+
+#idea-output {
+    margin: 1.5rem 0;
+}
+
+.idea-card {
+    border-radius: 12px;
+    background: var(--muted-surface);
+    padding: 1rem;
+}
+
+.idea-card h3 {
+    margin: 0 0 0.75rem 0;
+    color: var(--primary-color);
+}
+
+.idea-card ul {
+    margin: 0;
+    padding-left: 1rem;
+}
+
+.idea-card li {
+    margin-bottom: 0.4rem;
 }
 
 #theme-toggle {
@@ -94,7 +167,7 @@ h1 {
 }
 
 #history-container {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
 }
 
 #history-list {
@@ -111,8 +184,24 @@ h1 {
     margin-bottom: 0.5rem;
 }
 
+.info-list {
+    margin: 0.8rem 0 0 1rem;
+}
+
+.info-list li {
+    margin-bottom: 0.5rem;
+}
+
+.faq-item {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
 #partner-section {
-    margin-top: 2.5rem;
     text-align: left;
 }
 
@@ -163,10 +252,7 @@ h1 {
 }
 
 #comments-section {
-    margin-top: 2.5rem;
     text-align: left;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--border-color);
 }
 
 #comments-section h2 {
@@ -178,4 +264,18 @@ h1 {
     background: var(--muted-surface);
     border-radius: 12px;
     padding: 1rem;
+}
+
+@media (max-width: 720px) {
+    body {
+        padding: 1.5rem 1rem;
+    }
+
+    #app {
+        padding: 1.5rem;
+    }
+
+    .page-nav {
+        justify-content: flex-start;
+    }
 }
