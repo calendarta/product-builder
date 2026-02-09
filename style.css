@@ -135,6 +135,75 @@ h1 {
     margin-bottom: 0.4rem;
 }
 
+.ad-card {
+    background: linear-gradient(135deg, rgba(74, 144, 226, 0.08), rgba(245, 166, 35, 0.08));
+    border-style: dashed;
+}
+
+.ad-label {
+    margin: 0 0 0.75rem 0;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+
+.ad-placeholder {
+    background: var(--surface-color);
+    border-radius: 10px;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.case-grid,
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+.case-item,
+.resource-item {
+    background: var(--muted-surface);
+    padding: 1rem;
+    border-radius: 12px;
+}
+
+.case-meta {
+    margin: 0.5rem 0 0 0;
+    font-size: 0.85rem;
+    opacity: 0.75;
+}
+
+.rubric {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.rubric-row {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr 1fr;
+    gap: 0.5rem;
+    padding: 0.7rem;
+    background: var(--muted-surface);
+    border-radius: 10px;
+    font-size: 0.9rem;
+}
+
+.rubric-header {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    font-weight: 700;
+}
+
+@media (max-width: 720px) {
+    .rubric-row {
+        grid-template-columns: 1fr;
+    }
+}
+
 #theme-toggle {
     background-color: transparent;
     color: var(--text-color);

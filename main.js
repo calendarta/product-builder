@@ -13,6 +13,8 @@ function applyTheme(theme) {
 }
 
 const ideaSeeds = {
+    grades: ['중1', '중2', '중3', '고1', '고2'],
+    subjects: ['정보', '과학', '사회', '기술·가정', '미술'],
     goals: [
         '문제를 정의하고 해결 과정을 설명한다',
         '데이터를 시각화하여 의미를 해석한다',
@@ -45,6 +47,8 @@ function pick(list) {
 
 function generateIdea() {
     return {
+        grade: pick(ideaSeeds.grades),
+        subject: pick(ideaSeeds.subjects),
         goal: pick(ideaSeeds.goals),
         activity: pick(ideaSeeds.activities),
         outcome: pick(ideaSeeds.outcomes),
@@ -61,7 +65,7 @@ function updateHistory(idea) {
     historyList.innerHTML = '';
     for (const item of history) {
         const li = document.createElement('li');
-        li.textContent = `${item.goal} / ${item.activity}`;
+        li.textContent = `${item.grade} ${item.subject} · ${item.goal}`;
         historyList.appendChild(li);
     }
 }
@@ -73,6 +77,7 @@ generateButton.addEventListener('click', () => {
         <div class="idea-card">
             <h3>오늘의 수업 아이디어</h3>
             <ul>
+                <li><strong>대상</strong>: ${idea.grade} ${idea.subject}</li>
                 <li><strong>목표</strong>: ${idea.goal}</li>
                 <li><strong>활동</strong>: ${idea.activity}</li>
                 <li><strong>성과물</strong>: ${idea.outcome}</li>
