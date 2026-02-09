@@ -161,3 +161,21 @@ h1 {
 #partner-submit:hover {
     filter: brightness(0.95);
 }
+
+#comments-section {
+    margin-top: 2.5rem;
+    text-align: left;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+#comments-section h2 {
+    margin: 0 0 1rem 0;
+    color: var(--primary-color);
+}
+
+#disqus_thread {
+    background: var(--muted-surface);
+    border-radius: 12px;
+    padding: 1rem;
+}
