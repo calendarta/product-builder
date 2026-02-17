@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 180" role="img" aria-label="상담 준비 흐름도">
+  <rect width="680" height="180" rx="18" fill="#fff7ed"/>
+  <g fill="#9a3412" font-family="Noto Sans KR, sans-serif" font-size="18" font-weight="700" text-anchor="middle">
+    <rect x="40" y="45" width="170" height="90" rx="16" fill="#fff" stroke="#fdba74"/>
+    <text x="125" y="95">1. 정보 입력</text>
+
+    <rect x="255" y="45" width="170" height="90" rx="16" fill="#fff" stroke="#fdba74"/>
+    <text x="340" y="95">2. 질문 생성</text>
+
+    <rect x="470" y="45" width="170" height="90" rx="16" fill="#fff" stroke="#fdba74"/>
+    <text x="555" y="95">3. 실행 계획</text>
+  </g>
+  <g stroke="#ea580c" stroke-width="4" fill="none" stroke-linecap="round">
+    <path d="M220 90h24"/>
+    <path d="M435 90h24"/>
+  </g>
+  <g fill="#ea580c">
+    <path d="M243 84l10 6-10 6z"/>
+    <path d="M458 84l10 6-10 6z"/>
+  </g>
+</svg>

@@ -1,13 +1,13 @@
 :root {
     --bg: #fffaf3;
-    --bg-accent: #ffe7cb;
+    --bg-accent: #ffe8cd;
     --surface: #ffffff;
     --surface-soft: #fff4e6;
-    --text: #2c1f12;
+    --text: #2d2014;
     --muted: #6f543f;
     --primary: #d97706;
     --primary-deep: #9a3412;
-    --line: #f1d3b2;
+    --line: #f2d4b4;
     --radius: 16px;
 }
 
@@ -20,33 +20,50 @@ body {
     font-family: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
     color: var(--text);
     background: radial-gradient(circle at top right, var(--bg-accent), var(--bg));
-    line-height: 1.6;
+    line-height: 1.62;
+}
+
+.skip-link {
+    position: absolute;
+    left: -999px;
+    top: auto;
+}
+
+.skip-link:focus {
+    left: 1rem;
+    top: 1rem;
+    background: #111;
+    color: #fff;
+    padding: 0.6rem 0.8rem;
+    border-radius: 8px;
+    z-index: 20;
 }
 
 .hero {
     max-width: 980px;
     margin: 0 auto;
-    padding: 3.2rem 1.2rem 1.4rem;
+    padding: 3rem 1.2rem 1.3rem;
 }
 
 .eyebrow {
     margin: 0;
-    font-size: 0.83rem;
-    letter-spacing: 0.12em;
+    font-size: 0.82rem;
     text-transform: uppercase;
+    letter-spacing: 0.12em;
     color: var(--primary);
     font-weight: 700;
 }
 
 h1 {
-    margin: 0.4rem 0 0;
-    font-size: clamp(1.9rem, 3vw, 2.8rem);
+    margin: 0.45rem 0 0;
+    font-size: clamp(1.9rem, 3.1vw, 2.8rem);
     line-height: 1.2;
 }
 
 .hero-subtitle {
-    margin: 0.9rem 0 1.2rem;
+    margin: 0.8rem 0 1.2rem;
     color: var(--muted);
+    max-width: 760px;
 }
 
 .quick-nav {
@@ -57,8 +74,8 @@ h1 {
 
 .quick-nav a {
     text-decoration: none;
-    background: rgba(255, 255, 255, 0.88);
     border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.9);
     color: var(--primary-deep);
     border-radius: 999px;
     padding: 0.45rem 0.85rem;
@@ -68,7 +85,7 @@ h1 {
 .container {
     max-width: 980px;
     margin: 0 auto;
-    padding: 0 1.2rem 2.5rem;
+    padding: 0 1.2rem 2.6rem;
 }
 
 .card {
@@ -77,7 +94,7 @@ h1 {
     border-radius: var(--radius);
     padding: 1.25rem;
     margin-bottom: 1rem;
-    box-shadow: 0 10px 26px rgba(121, 79, 44, 0.08);
+    box-shadow: 0 10px 24px rgba(121, 79, 44, 0.08);
 }
 
 h2 {
@@ -87,12 +104,41 @@ h2 {
 
 h3 {
     margin: 0;
-    font-size: 1.05rem;
+    font-size: 1.04rem;
 }
 
 .lead {
     margin: 0.55rem 0 1rem;
     color: var(--muted);
+}
+
+.plain-list {
+    margin: 0.7rem 0 0;
+    padding-left: 1.1rem;
+}
+
+.plain-list li {
+    margin-bottom: 0.25rem;
+}
+
+.flow-figure {
+    margin: 1rem 0 0;
+    padding: 0.75rem;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--surface-soft);
+}
+
+.flow-figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.flow-figure figcaption {
+    margin-top: 0.5rem;
+    color: var(--muted);
+    font-size: 0.9rem;
 }
 
 .grid {
@@ -122,8 +168,8 @@ textarea {
     border: 1px solid var(--line);
     border-radius: 10px;
     padding: 0.7rem 0.8rem;
-    background: #fff;
     color: var(--text);
+    background: #fff;
 }
 
 input:focus,
@@ -157,16 +203,25 @@ button {
 
 .output-card h3 {
     color: var(--primary-deep);
-    margin-bottom: 0.5rem;
+    margin: 0.35rem 0;
 }
 
 .output-card ul {
-    margin: 0.35rem 0 0;
+    margin: 0.35rem 0 0.2rem;
     padding-left: 1.1rem;
 }
 
 .output-card li {
     margin-bottom: 0.3rem;
+}
+
+.output-meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.copy-btn {
+    margin-top: 0.7rem;
 }
 
 .history-wrap {
@@ -216,7 +271,7 @@ ol {
     }
 
     .hero {
-        padding-top: 2.4rem;
+        padding-top: 2.3rem;
     }
 
     .card {
